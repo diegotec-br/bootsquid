@@ -4,90 +4,159 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Lightsquid interface</title>
-  ##META##
-  <link rel="stylesheet" href="tpl/base/css/bootstrap.min.css">
-  <style>
-    body {
-      padding-top: 60px;
-      padding-bottom: 40px;
-    }
-  </style>
-  <link rel="stylesheet" href="tpl/base/css/bootstrap-responsive.min.css">
-  <link rel="stylesheet" href="tpl/base/css/main.css">
-  <script src="tpl/base/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Lightsquid interface</title>
+    ##META##
+    <link rel="stylesheet" href="tpl/base/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+    </style>
+    <link rel="stylesheet" href="tpl/base/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="tpl/base/css/main.css">
+    <script src="tpl/base/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
-<body>
-  <div class="navbar navbar-inverse navbar-fixed-top">
+
+<body bgcolor="white" text="black">
+<div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
-      <div class="container">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
-        <a class="brand" href="index.cgi">##DATE##</a>
-      </div>
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="index.cgi">##DATE##</a>
+        </div>
     </div>
-  </div>
-  <div class="container">
-  <div class="row">
-    <div class="span12">
-      <table class="table table-striped">
-      <tbody>
+</div>
+
+
+<center>
+    <table cellpadding="2" cellspacing="2">
+        <tbody>
         <tr>
-          <th>##MSG_NUM##</th>
-<!-- HIDE timereport start-->
-          <th>##MSG_TIME_REPORT##</th>
-<!-- HIDE timereport end-->
-          <th>##MSG_USER##</th>
-<!-- HIDE realname start-->
-          <th>##MSG_REALNAME##</th>
-<!-- HIDE realname end-->
-          <th>##MSG_CONNECT##</th>
-          <th>##MSG_BYTES##</th>
-          <th>%</th>
+            <td></td>
         </tr>
-<!-- [[ user start-->
-        <tr ##ROWATTR##>
-          <td>##USERNUM##</td>
-<!-- HIDE timereport start-->
-		      <td>
-            <A HREF="##TIMEURL_L##"><img src="get.cgi?png=datetime" border="0" title="Graph Report"/></A>
-          </td>
-<!-- HIDE timereport end-->
-		      <td><A HREF="##USERURL_L##">##USERURL_B##</A></td>
-<!-- HIDE realname start-->
-          <td align="right" nowrap="true">##REALNAME##</td>
-<!-- HIDE realname end-->		  
-          <td align="right">##USERCONNECT##</td>
-          <td align="right">##USERBYTES##</td>
-          <td align="right">##USERPERCENT##%</td>
-        </tr>
-<!-- ]] user end-->
-<!-- [[ groupend start-->
+        <!-- HIDE dayinfo start-->
         <tr>
-          <td colspan="3"></td>
-<!-- HIDE timereport start-->
-                  <td></td>
-<!-- HIDE timereport end-->
-<!-- HIDE realname start-->
-                  <td></td>
-<!-- HIDE realname end-->
-                  <td>##GROUPENDBYTES##</td>
-                  <td>##GROUPENDPERCENT##%</td>
+            <td colspan="11"><A HREF="##TOPSITESURL_L##">##TOPSITESURL_B##</A> ##MSG_REPORT##</td>
+        </tr>
+        <tr>
+            <td colspan="11"><A HREF="##BIGFILESURL_L##">##BIGFILESURL_B##</A> ##MSG_REPORT##<td>
+        </tr>
+        <!-- HIDE dayinfo end -->
+        </tbody>
+    </table>
+</center>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="span12">
+            <table class="table table-striped" style="margin-top: 10px">
+                <tbody>
+                <tr align="center" valign="top">
+                    <td align="center" valign="top">
+                        <center>
+
+                            <table cellpadding="2" cellspacing="2">
+                                <tbody>
+
+                                <tr>
+                                    <th>##MSG_NUM##</th>
+                                    <!-- HIDE timereport start-->
+                                    <th>##MSG_TIME_REPORT##</th>
+                                    <!-- HIDE    timereport end-->
+                                    <th>##MSG_USER##</th>
+                                    <!-- HIDE realname start-->
+                                    <th>##MSG_REALNAME##</th>
+                                    <!-- HIDE realname end-->
+                                    <th>##MSG_CONNECT##</th>
+                                    <th>##MSG_BYTES##</th>
+                                    <th>%</th>
+                                </tr>
+
+                                <!-- [[ groupstart start-->
+                                <tr>
+                                    <td colspan="7"><A name="##GROUPSTARTURL_L##">##GROUPSTARTURL_B##</A></td>
+                                </tr>
+                                <!-- ]] groupstart end-->
+
+                                <!-- VARIABLE evenattr bgcolor="#f9f9f9"    -->
+                                <!-- VARIABLE oddattr  bgcolor="#f9f9f9" -->
+
+
+                                <!-- [[ user start-->
+                                <tr ##ROWATTR##>
+                                    <td>##USERNUM##</td>
+                                    <!-- HIDE timereport start-->
+                                    <td><A HREF="##TIMEURL_L##"><img src="get.cgi?png=datetime" title="Graph Report"></A></td>
+                                    <!-- HIDE timereport end-->
+                                    <td><A HREF="##USERURL_L##">##USERURL_B##</A></td>
+                                    <!-- HIDE realname start-->
+                                    <td align="right" nowrap="true">##REALNAME##</td>
+                                    <!-- HIDE realname end-->
+                                    <td align="right">##USERCONNECT##</td>
+                                    <td align="right">##USERBYTES##</td>
+                                    <td align="right">##USERPERCENT##%</td>
+                                </tr>
+                                <!-- ]] user end-->
+
+                                <!-- [[ groupend start-->
+                                <tr>
+                                    <td colspan="3"></td>
+                                    <!-- HIDE timereport start-->
+                                    <td></td>
+                                    <!-- HIDE timereport end-->
+                                    <!-- HIDE realname start-->
+                                    <td></td>
+                                    <!-- HIDE realname end-->
+                                    <td align="right" style="color: red">##GROUPENDBYTES##</td>
+                                    <td align="right" style="color: red">##GROUPENDPERCENT##%</td>
+                                </tr>
+                                <!-- ]] groupend end-->
+
+                                </tbody>
+                            </table>
+                        </center>
+                    </td>
+
+                    <!-- Rigth Column -->
+                    <td align="center" valign="top">
+                        <table allign="center">
+                            <tbody>
+
+                            <tr>
+                                <td align="right">##MSG_NUM##</td>
+                                <td>##MSG_GROUP##</td>
+                                <td align="right">##MSG_BYTES##</td>
+                                <td align="right">%</td>
+                            </tr>
+
+                            <!-- [[ grouplist start-->
+                            <tr ##GROUPROWATTR##>
+                                <td align="right">##GROUPLISTNUM##</td>
+                                <td><A HREF="##GROUPLISTNAMEURL_L##">##GROUPLISTNAMEURL_B##</A></td>
+                                <td align="right">##GROUPLISTBYTES##</td>
+                                <td align="right">##GROUPLISTPERCENT##</td>
+                            </tr>
+                            <!-- ]] grouplist end-->
+
+                            </tbody>
+                        </table>
+                    </td>
                 </tr>
-<!-- ]] groupend end-->
-
-              </tbody>
+                </tbody>
             </table>
-
-</div></div></div>
-  <HR>
-  ##COPYRIGHT##
-    <div align="center"><a href="http://www.hipernetworks.net" target="_blank">Template by hipernetworks</a></div>
+        </div>
+    </div>
+</div>
+<HR>
+##COPYRIGHT##
 </body>
 </html>
